@@ -4,10 +4,11 @@ import com.kurdestan.xanu.city.City;
 import com.kurdestan.xanu.common.BaseEntity;
 import com.kurdestan.xanu.property.Property;
 import lombok.Data;
+import org.geolatte.geom.G2D;
+import org.geolatte.geom.Point;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.awt.*;
 import java.util.List;
 
 @Entity
@@ -18,8 +19,9 @@ public class Region extends BaseEntity {
     @Column(name = "name")
     private String name;
 
+    @ElementCollection
     @Column(name = "polygon")
-    private Polygon polygon;
+    private List<Point<G2D>> polygon;
 
     @NotNull
     @ManyToOne
