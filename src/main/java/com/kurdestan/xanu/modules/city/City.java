@@ -1,7 +1,7 @@
-package com.kurdestan.xanu.city;
+package com.kurdestan.xanu.modules.city;
 
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.region.Region;
+import com.kurdestan.xanu.modules.region.Region;
 import lombok.Data;
 
 import javax.persistence.*;

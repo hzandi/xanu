@@ -1,8 +1,8 @@
-package com.kurdestan.xanu.region;
+package com.kurdestan.xanu.modules.region;
 
-import com.kurdestan.xanu.city.City;
+import com.kurdestan.xanu.modules.city.City;
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.property.Property;
+import com.kurdestan.xanu.modules.property.Property;
 import lombok.Data;
 import org.geolatte.geom.G2D;
 import org.geolatte.geom.Point;

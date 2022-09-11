@@ -1,4 +1,4 @@
-package com.kurdestan.xanu.file_storage;
+package com.kurdestan.xanu.minio;
 
 import io.minio.GetObjectArgs;
 import io.minio.MinioClient;

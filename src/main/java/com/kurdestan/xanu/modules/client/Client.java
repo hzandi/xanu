@@ -1,6 +1,6 @@
-package com.kurdestan.xanu.client;
+package com.kurdestan.xanu.modules.client;
 
-import com.kurdestan.xanu.client_property.ClientProperty;
+import com.kurdestan.xanu.modules.client_property.ClientProperty;
 import com.kurdestan.xanu.common.BaseEntity;
 import lombok.Data;
 import javax.persistence.*;

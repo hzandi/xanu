@@ -1,8 +1,8 @@
-package com.kurdestan.xanu.client_property;
+package com.kurdestan.xanu.modules.client_property;
 
-import com.kurdestan.xanu.client.Client;
+import com.kurdestan.xanu.modules.client.Client;
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.property.Property;
+import com.kurdestan.xanu.modules.property.Property;
 import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;

@@ -1,8 +1,8 @@
-package com.kurdestan.xanu.image;
+package com.kurdestan.xanu.modules.image;
 
-import com.kurdestan.xanu.agency.Agency;
+import com.kurdestan.xanu.modules.agency.Agency;
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.property.Property;
+import com.kurdestan.xanu.modules.property.Property;
 import lombok.Data;
 
 import javax.persistence.*;

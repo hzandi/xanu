@@ -1,10 +1,10 @@
-package com.kurdestan.xanu.property;
+package com.kurdestan.xanu.modules.property;
 
-import com.kurdestan.xanu.agency.Agency;
-import com.kurdestan.xanu.client_property.ClientProperty;
+import com.kurdestan.xanu.modules.agency.Agency;
+import com.kurdestan.xanu.modules.client_property.ClientProperty;
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.image.Image;
-import com.kurdestan.xanu.region.Region;
+import com.kurdestan.xanu.modules.image.Image;
+import com.kurdestan.xanu.modules.region.Region;
 import lombok.Data;
 import org.geolatte.geom.G2D;
 import org.geolatte.geom.Point;
