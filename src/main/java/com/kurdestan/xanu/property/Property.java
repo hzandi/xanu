@@ -4,6 +4,7 @@ import com.kurdestan.xanu.agency.Agency;
 import com.kurdestan.xanu.client_property.ClientProperty;
 import com.kurdestan.xanu.common.BaseEntity;
 import com.kurdestan.xanu.image.Image;
+import com.kurdestan.xanu.region.Region;
 import lombok.Data;
 import org.geolatte.geom.G2D;
 import org.geolatte.geom.Point;
@@ -30,8 +31,20 @@ public class Property extends BaseEntity {
     @Column(name = "floor")
     private Integer floor;
 
+    @Column(name = "parking")
+    private Integer parking;
+
+    @Column(name = "has_balcony")
+    private Boolean hasBalcony;
+
+    @Column(name = "has_warehouse")
+    private Boolean hasWarehouse;
+
     @Column(name = "address")
     private String address;
+
+    @Column(name = "sell_price")
+    private Double sellPrice;
 
     @Column(name = "mortgage_price")
     private Double mortgagePrice;
@@ -50,6 +63,11 @@ public class Property extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "agency_id")
     private Agency agency;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "region_id")
+    private Region region;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "property", cascade = CascadeType.ALL)
     private List<Image> images;

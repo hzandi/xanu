@@ -18,6 +18,15 @@ public class Image extends BaseEntity {
     @Column(name = "name")
     private String name;
 
+    @NotNull
+    @Column(name = "order_index")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer orderIndex;
+
+    @NotNull
+    @Column(name = "is_preview")
+    private Boolean isPreview;
+
     @ManyToOne
     @JoinColumn(name = "property_id")
     private Property property;
