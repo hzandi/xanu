@@ -28,9 +28,8 @@ public class Agency extends BaseEntity {
     @Column(name = "location")
     private Point<G2D> location;
 
-    @JoinColumn(name = "image")
-    @OneToOne(mappedBy = "agency", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Image image;
+    @Column(name = "image")
+    private String image;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "agency", cascade = CascadeType.ALL)
     private List<Property> properties;
