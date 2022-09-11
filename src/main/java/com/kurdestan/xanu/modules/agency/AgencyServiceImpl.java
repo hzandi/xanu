@@ -51,11 +51,11 @@ public class AgencyServiceImpl implements AgencyService {
     @Override
     @Cacheable(value = "agencyCache", key = "#id")
     public Agency getById(Long id) {
-        Optional<Agency> optionalVehicle = agencyRepository.findById(id);
-        if (optionalVehicle.isEmpty()) {
+        Optional<Agency> optionalAgency = agencyRepository.findById(id);
+        if (optionalAgency.isEmpty()) {
             throw new NotFoundException("Agency Not Found!");
         }
-        return optionalVehicle.get();
+        return optionalAgency.get();
     }
 
     @Override

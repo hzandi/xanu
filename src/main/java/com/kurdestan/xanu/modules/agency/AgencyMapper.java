@@ -8,10 +8,7 @@ import java.util.List;
 public interface AgencyMapper {
 
     Agency toAgency(AgencyDTO agencyDTO);
-
     AgencyDTO toAgencyDTO(Agency agency);
-
     List<Agency> toAgencyList(List<AgencyDTO> agencyDTOS);
-
     List<AgencyDTO> toAgencyDTOList(List<Agency> agencies);
 }
