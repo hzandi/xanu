@@ -1,8 +1,8 @@
-package com.kurdestan.xanu.modules.property;
+package com.kurdestan.xanu.modules.house;
 
 import com.kurdestan.xanu.common.BaseEntity;
 import com.kurdestan.xanu.modules.agency.Agency;
-import com.kurdestan.xanu.modules.client_property.ClientProperty;
+import com.kurdestan.xanu.modules.client_house.ClientHouse;
 import com.kurdestan.xanu.modules.image.Image;
 import com.kurdestan.xanu.modules.region.Region;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.util.List;
 @Entity
 @Table(name = "tbl_properties")
 @Data
-public class Property extends BaseEntity {
+public class House extends BaseEntity {
 
     @NotNull
     @Column(name = "title")
@@ -55,7 +55,7 @@ public class Property extends BaseEntity {
 
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
-    private PropertyType type;
+    private HouseType type;
 
     @Column(name = "location")
     private Point<G2D> location;
@@ -70,10 +70,10 @@ public class Property extends BaseEntity {
     @JoinColumn(name = "region_id")
     private Region region;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "property", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "house", cascade = CascadeType.ALL)
     private List<Image> images;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "property", cascade = CascadeType.ALL)
-    private List<ClientProperty> savedProperty;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "house", cascade = CascadeType.ALL)
+    private List<ClientHouse> savedHouse;
 
 }

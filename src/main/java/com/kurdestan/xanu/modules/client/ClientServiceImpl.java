@@ -36,7 +36,7 @@ public class ClientServiceImpl implements ClientService {
         lastSavedClient.setEmail(client.getEmail());
         lastSavedClient.setPassword(client.getPassword());
         lastSavedClient.setPhone(client.getPhone());
-        lastSavedClient.setSavedProperty(client.getSavedProperty());
+        lastSavedClient.setSavedHouse(client.getSavedHouse());
         return clientRepository.save(lastSavedClient);
     }
 

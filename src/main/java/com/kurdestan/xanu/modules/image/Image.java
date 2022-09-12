@@ -1,7 +1,7 @@
 package com.kurdestan.xanu.modules.image;
 
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.modules.property.Property;
+import com.kurdestan.xanu.modules.house.House;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,8 +27,8 @@ public class Image extends BaseEntity {
     private Boolean isPreview;
 
     @ManyToOne
-    @JoinColumn(name = "property_id")
-    private Property property;
+    @JoinColumn(name = "House_id")
+    private House house;
 
 }
 

@@ -50,9 +50,9 @@ public class ImageController {
         return ResponseEntity.ok(imageDTO);
     }
 
-    @GetMapping("/v1/property/{propertyId}")
-    public ResponseEntity<List<ImageDTO>> getAllByPropertyId(@PathVariable Long propertyId) {
-        List<Image> imageList = service.getAllByPropertyId(propertyId);
+    @GetMapping("/v1/House/{HouseId}")
+    public ResponseEntity<List<ImageDTO>> getAllByHouseId(@PathVariable Long HouseId) {
+        List<Image> imageList = service.getAllByHouseId(HouseId);
         List<ImageDTO> imageDTOS = mapper.toImageDTOList(imageList);
         return ResponseEntity.ok(imageDTOS);
     }

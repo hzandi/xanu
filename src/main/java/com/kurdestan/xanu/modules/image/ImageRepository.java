@@ -17,7 +17,7 @@ public interface ImageRepository extends
         JpaSpecificationExecutor<Image> {
 
     Optional<Image> findByName(String name);
-    List<Image> findAllByProperty_Id(Long propertyId);
+    List<Image> findAllByHouse_Id(Long HouseId);
     Page<Image> findAll(Pageable pageable);
     List<Image> findAll(Specification<Image> specification);
 }

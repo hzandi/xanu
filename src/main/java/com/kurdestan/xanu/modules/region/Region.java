@@ -2,7 +2,7 @@ package com.kurdestan.xanu.modules.region;
 
 import com.kurdestan.xanu.common.BaseEntity;
 import com.kurdestan.xanu.modules.city.City;
-import com.kurdestan.xanu.modules.property.Property;
+import com.kurdestan.xanu.modules.house.House;
 import lombok.Data;
 import org.geolatte.geom.G2D;
 import org.geolatte.geom.Point;
@@ -29,5 +29,5 @@ public class Region extends BaseEntity {
     private City city;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "region", cascade = CascadeType.ALL)
-    private List<Property> properties;
+    private List<House> properties;
 }

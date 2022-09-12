@@ -9,6 +9,6 @@ public interface ImageService {
     void delete(Long id);
     Image getById(Long id);
     Image getByName(String name);
-    List<Image> getAllByPropertyId(Long id);
+    List<Image> getAllByHouseId(Long id);
     List<Image> getAll();
 }

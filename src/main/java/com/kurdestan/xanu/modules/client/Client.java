@@ -1,7 +1,7 @@
 package com.kurdestan.xanu.modules.client;
 
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.modules.client_property.ClientProperty;
+import com.kurdestan.xanu.modules.client_house.ClientHouse;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -28,6 +28,6 @@ public class Client extends BaseEntity {
     private String phone;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
-    private List<ClientProperty> savedProperty;
+    private List<ClientHouse> savedHouse;
 
 }

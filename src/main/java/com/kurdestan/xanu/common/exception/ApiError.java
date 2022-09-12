@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.CUSTOM, property = "error", visible = true)
+@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.CUSTOM, House = "error", visible = true)
 @JsonTypeIdResolver(LowerCaseClassNameResolver.class)
 public class ApiError {
 
@@ -92,7 +92,7 @@ public class ApiError {
     private void addValidationError(ConstraintViolation<?> cv) {
         this.addValidationError(
                 cv.getRootBeanClass().getSimpleName(),
-                ((PathImpl) cv.getPropertyPath()).getLeafNode().asString(),
+                ((PathImpl) cv.getHousePath()).getLeafNode().asString(),
                 cv.getInvalidValue(),
                 cv.getMessage());
     }

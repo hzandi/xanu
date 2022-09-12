@@ -1,14 +1,12 @@
 package com.kurdestan.xanu.modules.agency;
 
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.modules.property.Property;
-import com.kurdestan.xanu.modules.region.Region;
+import com.kurdestan.xanu.modules.house.House;
 import lombok.Data;
 import org.geolatte.geom.G2D;
 import org.geolatte.geom.Point;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 
@@ -33,6 +31,6 @@ public class Agency extends BaseEntity {
     private String slogan;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "agency", cascade = CascadeType.ALL)
-    private List<Property> properties;
+    private List<House> properties;
 
 }

@@ -34,7 +34,7 @@ public class ImageServiceImpl implements ImageService {
         lastSavedImage.setName(image.getName());
         lastSavedImage.setIsPreview(image.getIsPreview());
         lastSavedImage.setOrderIndex(image.getOrderIndex());
-        lastSavedImage.setProperty(image.getProperty());
+        lastSavedImage.setHouse(image.getHouse());
         return imageRepository.save(lastSavedImage);
     }
 
@@ -68,8 +68,8 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     @Cacheable(value = "imageCache")
-    public List<Image> getAllByPropertyId(Long id) {
-        return (List<Image>) imageRepository.findAllByProperty_Id(id);
+    public List<Image> getAllByHouseId(Long id) {
+        return (List<Image>) imageRepository.findAllByHouse_Id(id);
     }
 
     @Override

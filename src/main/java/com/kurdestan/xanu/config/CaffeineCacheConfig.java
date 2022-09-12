@@ -17,7 +17,7 @@ public class CaffeineCacheConfig {
     public CacheManager cacheManager() {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager(
                 "cityCache", "regionCache", "agencyCache",
-                "propertyCache", "imageCache", "clientCache", "clientPropertyCache"
+                "HouseCache", "imageCache", "clientCache", "clientHouseCache"
         );
         cacheManager.setCaffeine(caffeineCacheBuilder());
         return cacheManager;
