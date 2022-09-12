@@ -1,7 +1,6 @@
 package com.kurdestan.xanu.modules.image;
 
 import com.kurdestan.xanu.common.BaseEntity;
-import com.kurdestan.xanu.modules.agency.Agency;
 import com.kurdestan.xanu.modules.property.Property;
 import lombok.Data;
 
@@ -30,10 +29,6 @@ public class Image extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "property_id")
     private Property property;
-
-    @OneToOne
-    @JoinColumn(name = "agency_id")
-    private Agency agency;
 
 }
 
