@@ -45,6 +45,7 @@ public class ClientServiceImpl implements ClientService {
             @CacheEvict(value = "clientCache", allEntries = true),
     })
     public void delete(Long id) {
+        getById(id);
         clientRepository.deleteById(id);
     }
 

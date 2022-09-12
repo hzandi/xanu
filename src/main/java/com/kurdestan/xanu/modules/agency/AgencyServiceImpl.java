@@ -1,10 +1,16 @@
 package com.kurdestan.xanu.modules.agency;
 
+import com.kurdestan.xanu.common.SearchCriteria;
+import com.kurdestan.xanu.common.SearchSpecification;
 import com.kurdestan.xanu.common.exception.NotFoundException;
+import com.kurdestan.xanu.modules.house.House;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,6 +50,7 @@ public class AgencyServiceImpl implements AgencyService {
             @CacheEvict(value = "agencyCache", allEntries = true),
     })
     public void delete(Long id) {
+        getById(id);
         agencyRepository.deleteById(id);
     }
 
@@ -58,10 +65,22 @@ public class AgencyServiceImpl implements AgencyService {
     }
 
     @Override
-    @Cacheable(value = "agencyCache")
-    public List<Agency> getAll() {
-        return (List<Agency>) agencyRepository.findAll();
+    public Page<Agency> paging(Integer page, Integer size) {
+        return agencyRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
     }
+
+    @Override
+    public Page<Agency> pagingByRegionId(Long regionId, Integer page, Integer size) {
+        return agencyRepository.findAllByRegion_Id(regionId, PageRequest.of(page, size, Sort.by("id").descending()));
+    }
+
+    @Override
+    public List<Agency> search(List<SearchCriteria> searchCriteria) {
+        SearchSpecification<Agency> agencySpecification = new SearchSpecification<>();
+        searchCriteria.forEach(criteria -> agencySpecification.add(criteria));
+        return agencyRepository.findAll(agencySpecification);
+    }
+
 }
 
 

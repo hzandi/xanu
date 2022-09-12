@@ -41,6 +41,7 @@ public class RegionServiceImpl implements RegionService {
             @CacheEvict(value = "regionCache", allEntries = true),
     })
     public void delete(Long id) {
+        getById(id);
         regionRepository.deleteById(id);
     }
 

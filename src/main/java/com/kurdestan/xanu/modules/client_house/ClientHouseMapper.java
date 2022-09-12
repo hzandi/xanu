@@ -1,5 +1,6 @@
 package com.kurdestan.xanu.modules.client_house;
 
+import com.kurdestan.xanu.common.BaseDTO;
 import org.mapstruct.Mapper;
 
 import java.util.List;

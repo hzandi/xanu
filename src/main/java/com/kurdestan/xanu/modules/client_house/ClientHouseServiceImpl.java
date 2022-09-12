@@ -41,6 +41,7 @@ public class ClientHouseServiceImpl implements ClientHouseService {
             @CacheEvict(value = "clientHouseCache", allEntries = true),
     })
     public void delete(Long id) {
+        getById(id);
         clientHouseRepository.deleteById(id);
     }
 

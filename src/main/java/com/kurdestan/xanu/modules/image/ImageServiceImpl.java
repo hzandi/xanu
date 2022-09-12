@@ -43,6 +43,7 @@ public class ImageServiceImpl implements ImageService {
             @CacheEvict(value = "imageCache", allEntries = true),
     })
     public void delete(Long id) {
+        getById(id);
         imageRepository.deleteById(id);
     }
 

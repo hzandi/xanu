@@ -24,6 +24,6 @@ public class RegionDTO extends BaseDTO {
     private City city;
 
     @ApiModelProperty(required = false, hidden = true)
-    private List<House> cites;
+    private List<House> houses;
 
 }

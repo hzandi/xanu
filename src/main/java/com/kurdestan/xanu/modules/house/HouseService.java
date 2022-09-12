@@ -11,8 +11,6 @@ public interface HouseService {
     void delete(Long id);
     House getById(Long id);
     House getByTitle(String title);
-    List<House> getAll();
-
     Page<House> paging(Integer page, Integer size);
     Page<House> pagingByAgencyId(Long agencyId, Integer page, Integer size);
     Page<House> pagingByRegionId(Long regionId, Integer page, Integer size);

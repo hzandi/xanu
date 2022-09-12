@@ -1,5 +1,6 @@
 package com.kurdestan.xanu.modules.client;
 
+import com.kurdestan.xanu.common.BaseDTO;
 import com.kurdestan.xanu.modules.client_house.ClientHouse;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -7,7 +8,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ClientDTO {
+public class ClientDTO extends BaseDTO {
 
     @ApiModelProperty(required = true, hidden = false)
     private String name;

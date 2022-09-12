@@ -41,6 +41,7 @@ public class CityServiceImpl implements CityService {
             @CacheEvict(value = "cityCache", allEntries = true),
     })
     public void delete(Long id) {
+        getById(id);
         cityRepository.deleteById(id);
     }
 

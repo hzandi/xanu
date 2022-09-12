@@ -45,13 +45,6 @@ public class HouseController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/v1")
-    public ResponseEntity<List<HouseDTO>> getAll() {
-        List<House> houseList = service.getAll();
-        List<HouseDTO> houseDTOS = mapper.toHouseDTOList(houseList);
-        return ResponseEntity.ok(houseDTOS);
-    }
-
     @GetMapping("/v1/{title}")
     public ResponseEntity<HouseDTO> filterByTitle(@PathVariable String title) {
         House house = service.getByTitle(title);
@@ -61,20 +54,20 @@ public class HouseController {
 
     @GetMapping("/v1/agency/{agencyId}/{page}/{size}")
     public ResponseEntity<PagingData<HouseDTO>> getAllPagingByAgency(@PathVariable Long agencyId, @PathVariable Integer page, @PathVariable Integer size) {
-        Page<House> HousePage = service.pagingByAgencyId(agencyId, page, size);
-        return getPagingDataResponseEntity(page, HousePage);
+        Page<House> housePage = service.pagingByAgencyId(agencyId, page, size);
+        return getPagingDataResponseEntity(page, housePage);
     }
 
     @GetMapping("/v1/region/{regionId}/{page}/{size}")
     public ResponseEntity<PagingData<HouseDTO>> getAllPagingByRegion(@PathVariable Long regionId, @PathVariable Integer page, @PathVariable Integer size) {
-        Page<House> HousePage = service.pagingByRegionId(regionId, page, size);
-        return getPagingDataResponseEntity(page, HousePage);
+        Page<House> housePage = service.pagingByRegionId(regionId, page, size);
+        return getPagingDataResponseEntity(page, housePage);
     }
 
     @GetMapping("/v1/paging/{page}/{size}")
     public ResponseEntity<PagingData<HouseDTO>> getAllPaging(@PathVariable Integer page, @PathVariable Integer size) {
-        Page<House> HousePage = service.paging(page, size);
-        return getPagingDataResponseEntity(page, HousePage);
+        Page<House> housePage = service.paging(page, size);
+        return getPagingDataResponseEntity(page, housePage);
     }
 
     @PostMapping("/v1/search")
@@ -84,9 +77,9 @@ public class HouseController {
         return ResponseEntity.ok(houseDTOS);
     }
 
-    private ResponseEntity<PagingData<HouseDTO>> getPagingDataResponseEntity(@PathVariable Integer page, Page<House> HousePage) {
-        int totalPage = HousePage.getTotalPages();
-        List<House> data = HousePage.getContent();
+    private ResponseEntity<PagingData<HouseDTO>> getPagingDataResponseEntity(@PathVariable Integer page, Page<House> housePage) {
+        int totalPage = housePage.getTotalPages();
+        List<House> data = housePage.getContent();
         List<HouseDTO> houseDTOS = mapper.toHouseDTOList(data);
         PagingData<HouseDTO> pagingData = new PagingData<>(totalPage, page, houseDTOS);
         return ResponseEntity.ok(pagingData);

@@ -24,7 +24,7 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "HouseCache", allEntries = true),
+            @CacheEvict(value = "houseCache", allEntries = true),
     })
     public House save(House house) {
         return houseRepository.save(house);
@@ -32,7 +32,7 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "HouseCache", allEntries = true),
+            @CacheEvict(value = "houseCache", allEntries = true),
     })
     public House update(House house) {
         House lastSavedHouse = getById(house.getId());
@@ -56,14 +56,15 @@ public class HouseServiceImpl implements HouseService {
 
     @Override
     @Caching(evict = {
-            @CacheEvict(value = "HouseCache", allEntries = true),
+            @CacheEvict(value = "houseCache", allEntries = true),
     })
     public void delete(Long id) {
+        getById(id);
         houseRepository.deleteById(id);
     }
 
     @Override
-    @Cacheable(value = "HouseCache", key = "#id")
+    @Cacheable(value = "houseCache", key = "#id")
     public House getById(Long id) {
         Optional<House> optionalVehicle = houseRepository.findById(id);
         if (optionalVehicle.isEmpty()) {
@@ -73,7 +74,7 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    @Cacheable(value = "HouseCache", key = "#title")
+    @Cacheable(value = "houseCache", key = "#title")
     public House getByTitle(String title) {
         Optional<House> optionalHouse = houseRepository.findByTitle(title);
         if (optionalHouse.isEmpty()) {
@@ -83,31 +84,25 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    @Cacheable(value = "HouseCache")
-    public List<House> getAll() {
-        return (List<House>) houseRepository.findAll();
-    }
-
-    @Override
-    @Cacheable(value = "HouseCache")
+    @Cacheable(value = "houseCache")
     public Page<House> paging(Integer page, Integer size) {
         return houseRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
     }
 
     @Override
-    @Cacheable(value = "HouseCache")
+    @Cacheable(value = "houseCache")
     public Page<House> pagingByRegionId(Long regionId, Integer page, Integer size) {
         return houseRepository.findAllByRegion_Id(regionId, PageRequest.of(page, size, Sort.by("id").descending()));
     }
 
     @Override
-    @Cacheable(value = "HouseCache")
+    @Cacheable(value = "houseCache")
     public Page<House> pagingByAgencyId(Long agencyId, Integer page, Integer size) {
         return houseRepository.findAllByAgency_Id(agencyId, PageRequest.of(page, size, Sort.by("id").descending()));
     }
 
     @Override
-    @Cacheable(value = "HouseCache")
+    @Cacheable(value = "houseCache")
     public List<House> search(List<SearchCriteria> searchCriteria) {
         SearchSpecification<House> HouseSpecification = new SearchSpecification<>();
         searchCriteria.forEach(criteria -> HouseSpecification.add(criteria));

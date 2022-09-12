@@ -15,6 +15,7 @@ public interface AgencyRepository extends
         JpaSpecificationExecutor<Agency> {
 
     Agency findByName(String name);
+    Page<Agency> findAllByRegion_Id(Long regionId, Pageable pageable);
     Page<Agency> findAll(Pageable pageable);
     List<Agency> findAll(Specification<Agency> specification);
 }
