@@ -28,6 +28,6 @@ public class Client extends BaseEntity {
     private String phone;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
-    private List<ClientHouse> savedHouse;
+    private List<ClientHouse> houseBookmark;
 
 }

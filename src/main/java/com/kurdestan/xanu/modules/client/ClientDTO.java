@@ -26,5 +26,5 @@ public class ClientDTO extends BaseDTO {
     private String phone;
 
     @ApiModelProperty(required = false, hidden = false)
-    private List<ClientHouse> savedHouse;
+    private List<ClientHouse> houseBookmark;
 }

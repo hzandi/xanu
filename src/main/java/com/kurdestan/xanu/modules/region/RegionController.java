@@ -44,9 +44,9 @@ public class RegionController {
         return ResponseEntity.ok(regionDTO);
     }
 
-    @GetMapping("/v1/city/{id}")
-    public ResponseEntity<List<RegionDTO>> getAllByCityId(@PathVariable Long id) {
-        List<Region> regionList = service.getAllByCityId(id);
+    @GetMapping("/v1/city/{cityId}")
+    public ResponseEntity<List<RegionDTO>> getAllByCityId(@PathVariable Long cityId) {
+        List<Region> regionList = service.getAllByCityId(cityId);
         List<RegionDTO> regionDTOS = mapper.toRegionDTOList(regionList);
         return ResponseEntity.ok(regionDTOS);
     }
