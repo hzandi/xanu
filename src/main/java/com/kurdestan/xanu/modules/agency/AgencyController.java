@@ -30,13 +30,6 @@ public class AgencyController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/v1/region/{id}")
-    public ResponseEntity<List<AgencyDTO>> getAllByRegionId(@PathVariable Long id) {
-        List<Agency> agencies = service.getAllByRegionId(id);
-        List<AgencyDTO> agencyDTOS = mapper.toAgencyDTOList(agencies);
-        return ResponseEntity.ok(agencyDTOS);
-    }
-
     @GetMapping("/v1/{id}")
     public ResponseEntity<AgencyDTO> getById(@PathVariable Long id) {
         Agency agency = service.getById(id);
