@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Data
-@Table(name = "tbl_client_House")
+@Table(name = "tbl_client_Houses")
 @Entity
 public class ClientHouse extends BaseEntity {
 

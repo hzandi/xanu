@@ -10,5 +10,5 @@ public interface ClientHouseMapper {
     ClientHouse toClientHouse(ClientHouseDTO clientHouseDTO);
     ClientHouseDTO toClientHouseDTO(ClientHouse clientHouse);
     List<ClientHouse> toClientHouseList(List<ClientHouseDTO> clientHouseDTOS);
-    List<ClientHouseDTO> toClientHouseDTOList(List<ClientHouse> clientProperties);
+    List<ClientHouseDTO> toClientHouseDTOList(List<ClientHouse> clientApiModelProperty);
 }

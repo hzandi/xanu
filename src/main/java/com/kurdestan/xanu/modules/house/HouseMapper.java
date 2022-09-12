@@ -10,5 +10,5 @@ public interface HouseMapper {
     House toHouse(HouseDTO houseDTO);
     HouseDTO toHouseDTO(House house);
     List<House> toHouseList(List<HouseDTO> houseDTOS);
-    List<HouseDTO> toHouseDTOList(List<House> properties);
+    List<HouseDTO> toHouseDTOList(List<House> houses);
 }

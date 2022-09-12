@@ -31,6 +31,6 @@ public class Agency extends BaseEntity {
     private String slogan;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "agency", cascade = CascadeType.ALL)
-    private List<House> properties;
+    private List<House> houses;
 
 }

@@ -29,6 +29,6 @@ public class AgencyDTO extends BaseDTO {
     private String slogan;
 
     @ApiModelProperty(required = false, hidden = true)
-    private List<House> properties;
+    private List<House> houses;
 
 }

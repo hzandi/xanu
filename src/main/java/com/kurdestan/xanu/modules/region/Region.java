@@ -29,5 +29,5 @@ public class Region extends BaseEntity {
     private City city;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "region", cascade = CascadeType.ALL)
-    private List<House> properties;
+    private List<House> houses;
 }

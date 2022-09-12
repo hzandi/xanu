@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Table(name = "tbl_house")
+@Table(name = "tbl_houses")
 @Data
 public class House extends BaseEntity {
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "/client_properties/")
+@RequestMapping(value = "/client_houses/")
 @AllArgsConstructor
 public class ClientHouseController {
 
@@ -38,8 +38,8 @@ public class ClientHouseController {
 
     @GetMapping("/v1/{clientId}")
     public ResponseEntity<List<ClientHouseDTO>> getAllByClientHouseId(@PathVariable Long clientId) {
-        List<ClientHouse> clientProperties = service.getAllByClientId(clientId);
-        List<ClientHouseDTO> clientHouseDTOS = mapper.toClientHouseDTOList(clientProperties);
+        List<ClientHouse> clientHouses = service.getAllByClientId(clientId);
+        List<ClientHouseDTO> clientHouseDTOS = mapper.toClientHouseDTOList(clientHouses);
         return ResponseEntity.ok(clientHouseDTOS);
     }
 
