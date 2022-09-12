@@ -29,9 +29,6 @@ public class AgencyDTO extends BaseDTO {
     @ApiModelProperty(required = true, hidden = false)
     private String slogan;
 
-    @ApiModelProperty(required = true, hidden = false)
-    private Region region;
-
     @ApiModelProperty(required = false, hidden = true)
     private List<Property> properties;
 

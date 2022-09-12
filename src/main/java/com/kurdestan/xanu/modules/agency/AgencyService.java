@@ -8,6 +8,5 @@ public interface AgencyService {
     Agency update(Agency agency);
     void delete(Long id);
     Agency getById(Long id);
-    List<Agency> getAllByRegionId(Long placeId);
     List<Agency> getAll();
 }

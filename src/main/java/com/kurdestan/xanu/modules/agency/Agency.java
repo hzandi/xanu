@@ -32,11 +32,6 @@ public class Agency extends BaseEntity {
     @Column(name = "slogan")
     private String slogan;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "region_id")
-    private Region region;
-
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "agency", cascade = CascadeType.ALL)
     private List<Property> properties;
 

@@ -36,7 +36,6 @@ public class AgencyServiceImpl implements AgencyService {
         lastSavedAgency.setLocation(agency.getLocation());
         lastSavedAgency.setImage(agency.getImage());
         lastSavedAgency.setSlogan(agency.getSlogan());
-        lastSavedAgency.setRegion(agency.getRegion());
         return agencyRepository.save(lastSavedAgency);
     }
 
@@ -56,12 +55,6 @@ public class AgencyServiceImpl implements AgencyService {
             throw new NotFoundException("Agency Not Found!");
         }
         return optionalAgency.get();
-    }
-
-    @Override
-    @Cacheable(value = "agencyCache")
-    public List<Agency> getAllByRegionId(Long regionId) {
-        return agencyRepository.findAllByRegion_Id(regionId);
     }
 
     @Override
