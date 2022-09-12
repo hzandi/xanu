@@ -1,6 +1,7 @@
 package com.kurdestan.xanu.modules.region;
 
 import org.mapstruct.Mapper;
+
 import java.util.List;
 
 @Mapper(componentModel = "spring")

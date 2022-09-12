@@ -23,6 +23,13 @@ public class AgencyController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @PutMapping("/v1")
+    public ResponseEntity update(@RequestBody AgencyDTO agencyDTO) {
+        Agency agency = mapper.toAgency(agencyDTO);
+        service.update(agency);
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/v1/region/{id}")
     public ResponseEntity<List<AgencyDTO>> getAllByRegionId(@PathVariable Long id) {
         List<Agency> agencies = service.getAllByRegionId(id);

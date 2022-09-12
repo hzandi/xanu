@@ -1,8 +1,8 @@
 package com.kurdestan.xanu.modules.property;
 
+import com.kurdestan.xanu.common.BaseEntity;
 import com.kurdestan.xanu.modules.agency.Agency;
 import com.kurdestan.xanu.modules.client_property.ClientProperty;
-import com.kurdestan.xanu.common.BaseEntity;
 import com.kurdestan.xanu.modules.image.Image;
 import com.kurdestan.xanu.modules.region.Region;
 import lombok.Data;

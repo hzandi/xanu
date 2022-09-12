@@ -23,6 +23,13 @@ public class RegionController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @PutMapping("/v1")
+    public ResponseEntity update(@RequestBody RegionDTO regionDTO) {
+        Region region = mapper.toRegion(regionDTO);
+        service.update(region);
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/v1/{name}")
     public ResponseEntity<RegionDTO> getAllByName(@PathVariable String name) {
         Region region = service.getByName(name);

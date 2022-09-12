@@ -23,6 +23,19 @@ public class CityController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @PutMapping("/v1")
+    public ResponseEntity update(@RequestBody CityDTO cityDTO) {
+        City city = mapper.toCity(cityDTO);
+        service.update(city);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/v1/{id}")
+    public ResponseEntity delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/v1/{name}")
     public ResponseEntity<CityDTO> getAllByName(@PathVariable String name) {
         City city = service.getByName(name);
@@ -44,12 +57,6 @@ public class CityController {
         List<CityDTO> cityDTOS = mapper.toCityDTOList(cityList);
 
         return ResponseEntity.ok(cityDTOS);
-    }
-
-    @DeleteMapping("/v1/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
-        service.delete(id);
-        return ResponseEntity.ok().build();
     }
 
 }

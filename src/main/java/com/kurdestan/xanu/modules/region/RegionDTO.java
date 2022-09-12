@@ -8,8 +8,6 @@ import lombok.Data;
 import org.geolatte.geom.G2D;
 import org.geolatte.geom.Point;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 
