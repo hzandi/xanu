@@ -11,6 +11,7 @@ import org.geolatte.geom.Point;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -43,14 +44,14 @@ public class Property extends BaseEntity {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "sell_price")
-    private Double sellPrice;
+    @Column(name = "sale_price")
+    private BigDecimal salePrice;
 
     @Column(name = "mortgage_price")
-    private Double mortgagePrice;
+    private BigDecimal mortgagePrice;
 
     @Column(name = "rent_price")
-    private Double rentPrice; // big decimal, hibernate(?)
+    private BigDecimal rentPrice;
 
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
