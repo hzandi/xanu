@@ -46,12 +46,6 @@ public class AgencyController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/v1/region/{regionId}/{page}/{size}")
-    public ResponseEntity<PagingData<AgencyDTO>> getAllPagingByRegion(@PathVariable Long regionId, @PathVariable Integer page, @PathVariable Integer size) {
-        Page<Agency> agencyPage = service.pagingByRegionId(regionId, page, size);
-        return getPagingDataResponseEntity(page, agencyPage);
-    }
-
     @GetMapping("/v1/paging/{page}/{size}")
     public ResponseEntity<PagingData<AgencyDTO>> getAllPaging(@PathVariable Integer page, @PathVariable Integer size) {
         Page<Agency> agencyPage = service.paging(page, size);
@@ -60,8 +54,8 @@ public class AgencyController {
 
     @PostMapping("/v1/search")
     public ResponseEntity<List<AgencyDTO>> search(@RequestBody List<SearchCriteria> searchCriteria) {
-        List<Agency> houseList = service.search(searchCriteria);
-        List<AgencyDTO> agencyDTOS = mapper.toAgencyDTOList(houseList);
+        List<Agency> agencyList = service.search(searchCriteria);
+        List<AgencyDTO> agencyDTOS = mapper.toAgencyDTOList(agencyList);
         return ResponseEntity.ok(agencyDTOS);
     }
 

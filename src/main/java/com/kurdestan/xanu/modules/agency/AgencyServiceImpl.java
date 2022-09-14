@@ -70,11 +70,6 @@ public class AgencyServiceImpl implements AgencyService {
     }
 
     @Override
-    public Page<Agency> pagingByRegionId(Long regionId, Integer page, Integer size) {
-        return agencyRepository.findAllByRegion_Id(regionId, PageRequest.of(page, size, Sort.by("id").descending()));
-    }
-
-    @Override
     public List<Agency> search(List<SearchCriteria> searchCriteria) {
         SearchSpecification<Agency> agencySpecification = new SearchSpecification<>();
         searchCriteria.forEach(criteria -> agencySpecification.add(criteria));

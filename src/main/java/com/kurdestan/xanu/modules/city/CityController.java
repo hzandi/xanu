@@ -1,6 +1,11 @@
 package com.kurdestan.xanu.modules.city;
 
+import com.kurdestan.xanu.common.PagingData;
+import com.kurdestan.xanu.common.SearchCriteria;
+import com.kurdestan.xanu.modules.agency.Agency;
+import com.kurdestan.xanu.modules.agency.AgencyDTO;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -57,6 +62,27 @@ public class CityController {
         List<CityDTO> cityDTOS = mapper.toCityDTOList(cityList);
 
         return ResponseEntity.ok(cityDTOS);
+    }
+
+    @GetMapping("/v1/paging/{page}/{size}")
+    public ResponseEntity<PagingData<CityDTO>> Paging(@PathVariable Integer page, @PathVariable Integer size) {
+        Page<City> cityPage = service.paging(page, size);
+        return getPagingDataResponseEntity(page, cityPage);
+    }
+
+    @PostMapping("/v1/search")
+    public ResponseEntity<List<CityDTO>> search(@RequestBody List<SearchCriteria> searchCriteria) {
+        List<City> cityList = service.search(searchCriteria);
+        List<CityDTO> cityDTOS = mapper.toCityDTOList(cityList);
+        return ResponseEntity.ok(cityDTOS);
+    }
+
+    private ResponseEntity<PagingData<CityDTO>> getPagingDataResponseEntity(@PathVariable Integer page, Page<City> cityPage) {
+        int totalPage = cityPage.getTotalPages();
+        List<City> data = cityPage.getContent();
+        List<CityDTO> cityDTOS = mapper.toCityDTOList(data);
+        PagingData<CityDTO> pagingData = new PagingData<>(totalPage, page, cityDTOS);
+        return ResponseEntity.ok(pagingData);
     }
 
 }
