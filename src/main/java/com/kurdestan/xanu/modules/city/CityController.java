@@ -22,21 +22,21 @@ public class CityController {
     private CityMapper mapper;
 
     @PostMapping("/v1")
-    public ResponseEntity save(@RequestBody CityDTO cityDTO) {
+    public ResponseEntity<?> save(@RequestBody CityDTO cityDTO) {
         City city = mapper.toCity(cityDTO);
         service.save(city);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/v1")
-    public ResponseEntity update(@RequestBody CityDTO cityDTO) {
+    public ResponseEntity<?> update(@RequestBody CityDTO cityDTO) {
         City city = mapper.toCity(cityDTO);
         service.update(city);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/v1/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok().build();
     }

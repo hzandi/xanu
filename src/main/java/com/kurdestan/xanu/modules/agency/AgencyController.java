@@ -20,14 +20,14 @@ public class AgencyController {
     private AgencyMapper mapper;
 
     @PostMapping("/v1")
-    public ResponseEntity save(@RequestBody AgencyDTO agencyDTO) {
+    public ResponseEntity<?> save(@RequestBody AgencyDTO agencyDTO) {
         Agency agency = mapper.toAgency(agencyDTO);
         service.save(agency);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PutMapping("/v1")
-    public ResponseEntity update(@RequestBody AgencyDTO agencyDTO) {
+    public ResponseEntity<?> update(@RequestBody AgencyDTO agencyDTO) {
         Agency agency = mapper.toAgency(agencyDTO);
         service.update(agency);
         return ResponseEntity.ok().build();
@@ -41,7 +41,7 @@ public class AgencyController {
     }
 
     @DeleteMapping("/v1/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok().build();
     }

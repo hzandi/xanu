@@ -1,10 +1,15 @@
 package com.kurdestan.xanu.modules.client;
 
+import com.kurdestan.xanu.common.SearchCriteria;
+import com.kurdestan.xanu.common.SearchSpecification;
 import com.kurdestan.xanu.common.exception.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -73,6 +78,18 @@ public class ClientServiceImpl implements ClientService {
     @Cacheable(value = "clientCache")
     public List<Client> getAll() {
         return (List<Client>) clientRepository.findAll();
+    }
+
+    @Override
+    public Page<Client> paging(Integer page, Integer size) {
+        return clientRepository.findAll(PageRequest.of(page, size, Sort.by("id").descending()));
+    }
+
+    @Override
+    public List<Client> search(List<SearchCriteria> searchCriteria) {
+        SearchSpecification<Client> clientSpecification = new SearchSpecification<>();
+        searchCriteria.forEach(criteria -> clientSpecification.add(criteria));
+        return clientRepository.findAll(clientSpecification);
     }
 
 }
